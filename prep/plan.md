@@ -1,7 +1,7 @@
-# Plan
+# Freedom Project Plan
 
-## Tool: 
-## Product: 
+## Tool: vue.js
+## Product:  Digital Dashboard
 
 ---
 
