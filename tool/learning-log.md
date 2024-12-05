@@ -23,9 +23,28 @@
 
 ### 11/11/24, Entry 3
 
+During this week, I am not experimenting more with integrating APIs so that I can get stuff (like the weather)  pushed to the website and be displayed in a Bootstrap "card" element. After watching a couple of videos, I started to understand the concept of how API's work, and how I could possibly integrate them into my dashboard / calendar. Speaking of which, I need to pick a DBA name for my product, because "Digital Calendar + Dashboard" doesn't sound very attractive.
+
 * [AXIOS API](https://github.com/axios/axios?tab=readme-ov-file#axios-api)
 * [VUE JS API HELP](https://v2.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html?redirect=true)
 * [AXIOS VIDEO WITH API](https://www.youtube.com/watch?v=-BYZAO99UVA)
+
+
+
+### 11/23/23, Entry 4
+
+In order to get the cameras to work (it's currently the easiest thing to implement right now), I had to use [a Stack Overflow post](https://stackoverflow.com/questions/19782389/playing-m3u8-files-with-html-video-tag) to help me integrate the 511NY traffic cameras into the website (mainly as a placeholder, but can also just be left as is). By using:
+
+```html
+ <div id='player'>
+            <video width="auto" height="auto" src="https://s52.nysdot.skyvdn.com/rtplive/R11_072/playlist.m3u8">
+            </video>
+        </div>
+```
+we can now see the traffic camera by the [BQE](https://511ny.org/#camera-1998--36) (never drive on the BQE right before / during / after rush hour PLEASE 😭)
+
+
+
 <!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
