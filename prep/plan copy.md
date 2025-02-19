@@ -18,7 +18,7 @@
 
 #### Beyond MVP
 
-- [ ] Revamp the UI period. Make dark mode, make it more intuitive, maybe even change the template for a nicer one (04/10/2025)
+- [ ] Revamp the UI period. Make dark mode, make it more intuitive, maybe even change the template for a nicer one / make a new interface from scratch (04/10/2025)
   - [ ] Find a way to make a setup page to configure the apps, make them cards and, make it modular (toggle settings) (04/10/2025)
 
 
