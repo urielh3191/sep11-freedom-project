@@ -10,12 +10,15 @@
 #### MVP
 
 #### Front-end
-- [ ] Get the API's and the vue.js apps fully functional (deadline: 03/16/2025)
-  - [ ] Revamp the current UI for all kinds of displays (breakpoints) (deadline: 03/16/2025)
+- [ ] set up cookies for the website (02/20/2025)
+- [ ] make the website card items more organized
+  - [ ] design a settings / config page
+- [ ] make the website for displays AS WELL as computers / phones (breakpoints)
+
 
 #### Beyond MVP
 
-- [ ] Revamp the UI period. Make dark mode, make it more intuitive (04/10/2025)
+- [ ] Revamp the UI period. Make dark mode, make it more intuitive, maybe even change the template for a nicer one / make a new interface from scratch (04/10/2025)
   - [ ] Find a way to make a setup page to configure the apps, make them cards and, make it modular (toggle settings) (04/10/2025)
 
 
