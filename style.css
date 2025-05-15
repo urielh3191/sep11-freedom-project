@@ -1,0 +1,179 @@
+body, html {
+    height: 100%;  /* fixes website height to window */
+    margin: 0; /* makes sure the website is as vanilla as can be */
+    overflow: hidden; /* prevents scrolling */
+}
+
+
+.sidebar {
+    position: fixed; /* locks sidebar in place  */
+    top: 0;
+    left: 0; /* sets sidebar location x and y on body  */
+    width: 500px; /* makes sidebar 500px wide  */
+    height: 100%;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column; /* stack items in sidebar vertically  */
+    z-index: 10;  /* keeps sidebar on front (3d math n stuff)  */
+}
+
+                                                       /* NAVBAR ↓  */
+.navbar {
+    height: 95px;
+    align-items: center;
+    background-color: black;
+    color: #ffffff;
+    border-bottom: 1px solid #00ff00; /* visual separator  */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navbar-right {
+    text-align: right;
+    padding-right: 25px;
+}
+
+.navbar-right h1#current-time {
+    font-family: 'VT323', monospace; /* kewl font i like with monospace as fallback  */
+    letter-spacing: -0.05em;
+    font-size: 4.5em;
+}
+
+                                               /* sidebar !!  */
+.sidebar-content {
+    padding-top: 95px; /* push content down below navbar */
+}
+
+/* google calendar  */
+.sidebar-calendar {
+    padding: 0px;
+}
+
+                                          /* main content !!  */
+.main-content {
+    position: absolute;
+    left: 500px;         /* compensate for sidebar  */
+    top: 95px;        /* compensate for navbar  */
+    right: 0px;
+    bottom: 0px;        /* safeproofing the formatting and orientation  */
+    padding: 15px;
+    display: grid;         /* makes sure its a grid layout  */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));         /* repeating grid pattern duh  */
+    grid-auto-rows: 320px;         /* makes cards start at at least 320px  */
+    gap: 15px;         /* sets card spacing to 15px  */
+    overflow-y: auto;         /* allows vert. scrolling in main-content area ONLY  */
+}
+
+                                              /* card elements !!  */
+.card {
+    height: 100%;
+    width: 100%;         /* content will fill 100% of the card  */
+}
+
+/* specific style for the weather card */
+.card.weather-card {
+    margin-bottom: 15px;
+    grid-column: span 2;           /* makes the width TWO cards long  */
+}
+
+/* weather icon and temperature */
+.row-half {
+    display: flex;
+    align-items: stretch;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+
+.col {
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.col.cell-99x99 {
+    width: 99px;
+    height: 99px;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.col.cell-99x99 img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;     /* makes image fit in container */
+}
+
+
+.col.cell-363 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.col.cell-363 h3 {
+    max-width: 100%;
+}
+
+
+.cell-2-wrapper {
+    transform: translate(0, 0);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.cell-2-wrapper h1{
+    text-align:left;
+    margin-bottom: 5px;
+}
+
+ .cell-2-wrapper h3{
+    text-align:left;
+    transform: translate(0, 0);
+    font-size: 1.5rem;
+}
+
+
+.main-content .card.text-center .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    height: 100%;
+}
+
+
+#511NYvideo1.card.traffic-card {
+    max-width: 400px;
+    width: 100%;
+}
+
+#511NYvideo1 .card-body {
+    padding: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#511NYvideo1 video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+

@@ -14,7 +14,7 @@ For my project, I chose to independently study **vue.js** in order to help me ma
 
 ## Implications
 ##### PROS
-*
+* Leave the house without 
 ##### CONS
 *
 

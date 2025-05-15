@@ -1,29 +1,149 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Digital Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.3/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="sidebar">
+            <div class="navbar">
+                <div class="navbar-left"></div>
+                <div class="navbar-middle">
+                    <h1>Welcome !</h1>
+                </div>
+                <div class="navbar-right">
+                    <h1 id="current-time">{{ cornerClock }}</h1>
+                </div>
+            </div>
+            <div class="sidebar-content">
+                <div class="sidebar-calendar">
+                    <iframe src="https://calendar.google.com/calendar/embed?height=1080&wkst=1&ctz=America%2FNew_York&showPrint=0&mode=AGENDA&showNav=0&showTitle=0&showDate=0&showTabs=0&showCalendars=0&showTz=0&src=Y18zYjI0Y2I5MTAxNjZiZDk2Y2ZiOGQ1M2YyNGFlYzc0Y2UzN2UwZjY5NDk4NGVlNjQ3ZTcwY2Y0YWE5MDNjMzU0QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23E67C73" style="border-width:0" width="500" height="840" frameborder="0" scrolling="no"></iframe>
+                     </div>
+            </div>
+        </div>
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="style.css" rel="stylesheet" type="text/css" />
-        <style>
-            /* CSS */
-            
-        </style>
-        
-        <title>Title</title>
-    </head>
-    <body>
-        <!-- HTML -->
-        
-        
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- <script src="script.js"></script> -->
-        <script>
-            // JS
-            
-            
-        </script>
-    </body>
+        <div class="main-content">
+            <div class="card weather-card">
+                <h5 class="card-header"> Weather </h5>
+                <div class="card-body">
+                    <div class="row row-half">
+                        <div class="col cell-99x99">
+                        <img :src="weatherIconUrl" alt="Weather icon">
+                        </div>
+                        <div class="col cell-363">
+                            <div class="cell-2-wrapper" id="temperature-display">
+                                <h1>{{ temperature }}</h1>
+                                <br>
+                                <h3>{{ detailedForecast }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="511NYvideo1" class="card text-center traffic-card">
+                <h5 class="card-header"><i class="bi bi-record-btn" style="font-size: 1.2rem; color: red;"></i> I-278 at 63rd Street</h5>
+                <div class="card-body">
+                   <video id="trafficVideoPlayer" controls autoplay muted style="width: 100%; height: auto;"></video>
+                </div>
+              </div>
+
+              <div id="NWSradar" class="card">
+                  <h5 class="card-header">NYC Weather Radar</h5>
+                  <div class="card-body">
+                       <img src="https://radar.weather.gov/ridge/standard/KOKX_loop.gif" alt="Weather radar for NYC" width="300" height="250">
+                  </div>
+              </div>
+
+              <div class="card">
+                  <h5 class="card-header"> BEFORE YOU LEAVE:</h5>
+                  <div class="card-body">
+                        <ul class="list-group">
+                        <li class="list-group-item">Keys</li>
+                        <li class="list-group-item">Wallet</li>
+                        <li class="list-group-item">Backpack</li>
+                        <li class="list-group-item">Phone</li>
+                        <li class="list-group-item active" aria-current="true">Don't forget to smile :D</li>
+                        </ul>
+                  </div>
+              </div>
+            </div>
+    </div>
+
+<script>
+    const { createApp } = Vue;
+
+    createApp({
+        data() {
+            return {
+            // weather placeholder before API loads in
+                currentTime: new Date(),
+                temperature: '',
+                detailedForecast: '',
+                weatherIconUrl: ''
+            };
+        },
+        mounted() { // loads when website is "mounted" / loaded in
+            setInterval(() => {
+                this.currentTime = new Date();
+            }, 1000); // updates every 100ms (1000ms = 1 second)
+            this.fetchWeatherData();
+            // traffic camera
+            if(Hls && Hls.isSupported()) {
+                var video = document.getElementById('trafficVideoPlayer');
+                var hls = new Hls();
+                hls.loadSource('https://s7.nysdot.skyvdn.com/rtplive/R11_247/playlist.m3u8');
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED,function() {
+                video.play();
+            });
+            }
+        },
+        methods: {
+           fetchWeatherData() { // weather widget
+               const url = 'https://api.weather.gov/gridpoints/OKX/33,32/forecast'; // json file, replace with whatever your desired loc. is
+               axios.get(url)
+                   .then(response => {
+                       const periods = response.data.properties.periods;
+                       if (periods && periods.length > 0) {
+                           this.temperature = periods[0].temperature + '°F';
+                           this.detailedForecast = periods[0].detailedForecast;
+                           let iconUrl = periods[0].icon;
+                           if (iconUrl) {
+                               if (iconUrl.includes('size=medium')) {
+                                   iconUrl = iconUrl.replace('size=medium', 'size=large');
+                               }
+                            this.weatherIconUrl = iconUrl;
+                           }
+                       }
+                   })
+
+         },
+      },
+      computed: {
+          cornerClock() {
+              const hours = this.currentTime.getHours();
+              const minutes = this.currentTime.getMinutes();
+              const seconds = this.currentTime.getSeconds();
+              const ampm = hours >= 12 ? 'PM' : 'AM';
+              const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
+              const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+              const formattedSeconds = seconds < 10 ? '0' + seconds : seconds;
+              return `${formattedHours}:${formattedMinutes}:${formattedSeconds} ${ampm}`;
+          }
+      }
+  }).mount('#app');
+</script>
+</body>
 </html>
