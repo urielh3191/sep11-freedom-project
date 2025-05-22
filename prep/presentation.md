@@ -1,41 +1,31 @@
-# Presentation Plan
+# SEP11 FP MVP Presentation Plan
 
 ## Hook
-* 
+* "Wouldn't it be nice to see your schedule *before* you leave home?"
+* Introduce barebones concept of digital signage (specifically info displays)
 
 ## Product
-* 
+* Beyond MVP Concept image
+* Screenshot of FP MVP Website
 
 ## Process
-* 
-
-## Conclusion
-* 
-
-<!-- EXAMPLE
-
-## Hook
-* Verbal riddle of GGD
+* Big challenges (poor time management, no plan, poor knowledge of tools)
+* MVP: traffic cams, weather, calendar
+* MVP code
+  * Show crazy CSS
+    * Explain constant back-and-forth of VSC and browser
+  * show text placeholder values
+  * Traffic camera video (hls and Vue)
+  * Weather API pulls and JSON exploring
+  * Corner clock code
 
 ## Product
-* GIF/Demo of example/non-example
+* Beyond MVP Concept image
+* Screenshot of FP MVP Website
 
-## Process
-* Flowchart of plan
-  * MVP: noun -> door -> yes/no
-  * Beyond MVP: noun -> word relation API -> noun API -> yes/no, with counterexample
-* Code snippets of:
-  * MVP
-  * Both APIs
-  * Challenge with API keys
 
 ## Conclusion
-* [URL to project]
-* Takeaways
-  * Less = more: the heart of the riddle was one line of code; it obviously took more to make the entire thing work, but one complicated line of regular expressions was essentially the solution to the riddle
-  * Expect the unexpected: it’s important to budget time for things you don’t account for; for example, I didn’t consider the fact that I would need another entire API to detect nouns
-  * Determination is key: ironically enough, I had to make my API keys private. At first, it didn’t seem like it was possible, which meant I couldn’t publish my app. But after all of that hard work, I was determined to find a solution, and I found it in config variables.
-* "Presentation can’t, but a speech can"
-
-
--->
+* Sometimes, the basics suffice. Don't spend too much time trying to perfect something.
+    * Not an excuse to slack off, set your eyes on the prize (beyond MVP)
+* Even if you don't finish something on time, especially if you're disappointed, keep pushing. Keep learning more to try and improve what your past self might have missed.
+* Time is money, and time is the one thing you can't get back. Don't push deadlines, because the future is sometimes unpredictable.
