@@ -8,16 +8,18 @@ For my project, I chose to independently study **vue.js** in order to help me ma
 
 ## Links
 
-[Product]()
+[Product](https://urielh3191.github.io/)
 
-[Presentation]()
+[Presentation](https://docs.google.com/presentation/d/14FONPfXQjYcgJS7oMwjDGHwwHREF7zywOIUEdxERbAk/view?slide=id.p1#slide=id.p1)
 
 ## Implications
 ##### PROS
-* Leave the house without 
-##### CONS
-*
+* Never leave home without first being in the loop
+  * Saves you from leaving home without umbrella / coat / sunscreen
+* Give you preview of traffic from the comfort of your home
 
+##### CONS
+* Requires a computer and network connection.
 
 ## Blog
 Below you will find my blog about how I made my project.
@@ -25,10 +27,3 @@ Below you will find my blog about how I made my project.
 * [Entry 1](blog/entry01.md)
 * [Entry 2](blog/entry02.md)
 * [Entry 3](blog/entry03.md)
-* [Entry 4](blog/entry04.md)
-* [Entry 5](blog/entry05.md)
-* [Entry 6](blog/entry06.md)
-* [Entry 7](blog/entry07.md)
-* [Entry 8](blog/entry08.md)
-* [Entry 9](blog/entry09.md)
-* [Entry 10](blog/entry10.md)
