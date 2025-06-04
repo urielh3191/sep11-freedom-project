@@ -15,7 +15,7 @@ To start off, I needed to install vue.js. According to the website, all I needed
 Now that vue.js is installed, we can tinker around with the [quick start code](https://vuejs.org/guide/quick-start.html#using-vue-from-cdn) generously provided by the developers of vue.js, which is pretty basic. I just changed the names to better fit my purposes on my website.
 
 ```html
-<div id="app">{{ message } </div> // message is the parameter of the app. You can change all instances of "message" and change it's name.
+<div id="app">{ message } </div> // message is the parameter of the app. You can change all instances of "message" and change it's name.
 
 <script>
   const { createApp } = Vue // this is the name of the placeholder / variable
